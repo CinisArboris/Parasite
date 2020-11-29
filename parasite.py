@@ -4,40 +4,22 @@ import numpy
 
 class Parasite :	
 	#variables
-	fila = 0
-	columna = 0
-	imagenFoto = 0
-	imagenDato = 0
-	textoASCII = ""
-	vectorDEC = []
+	fila		= 0
+	columna		= 0
+	imagenFoto	= 0
+	imagenDato	= 0
+	textoASCII	= "default"
+	vectorDEC	= []
 	
 	
 	def __init__ (self, fila, columna, textoASCII, vectorDEC):
-		self.fila = fila
-		self.columna = columna
-		self.textoASCII = textoASCII
-		self.vectorDEC = vectorDEC
+		self.fila		= fila
+		self.columna	= columna
+		self.textoASCII	= textoASCII
+		self.vectorDEC	= vectorDEC
 		print ("==============================")
 		
 	#funciones
-	def banner(self):
-		print ("You did't say the magic word !!!")
-		print ("You did't say the magic word !!!")
-		print ("You did't say the magic word !!!")
-		print ("You did't say the magic word !!!")
-		print ("You did't say the magic word !!!")
-		print ("You did't say the magic word !!!")
-		print ("You did't say the magic word !!!")
-		print ("You did't say the magic word !!!")
-		print ("==============================")
-
-	def crearImagen(self):
-		dimensiones=(self.fila, self.columna)
-		self.imagenFoto = Image.new('RGB', dimensiones, 'white')
-		self.imagenDato = self.imagenFoto.load()
-		self.guardarCerrar()
-		print ("==============================")
-
 	def guardarCerrar(self):
 		self.imagenFoto.save('nox.png')
 		print ("==============================")
@@ -61,11 +43,41 @@ class Parasite :
 		resultado = self.asciiTObin()
 		print (resultado)
 
+	def banner(self):
+		print ("You did't say the magic word !!!")
+		print ("You did't say the magic word !!!")
+		print ("You did't say the magic word !!!")
+		print ("You did't say the magic word !!!")
+		print ("You did't say the magic word !!!")
+		print ("You did't say the magic word !!!")
+		print ("You did't say the magic word !!!")
+		print ("You did't say the magic word !!!")
+		print ("==============================")
+
+	def crearImagen(self):
+		dimensiones=(self.fila, self.columna)
+		self.imagenFoto = Image.new('RGB', dimensiones, 'white')
+		self.imagenDato = self.imagenFoto.load()
+		self.guardarCerrar()
+		print ("Imagen base creada :)")
+		print ("==============================")
+
+	def asciiTObin (self):
+		for x in self.textoASCII:
+			#print (x)
+			#print (bytearray(x, encoding='utf-8'))
+			#print (ord(x))
+			#print (hex(ord(x)))
+			#print (bin(ord(x)))
+			self.vectorDEC.append(bin(ord(x)))#[2:])
+		print (self.vectorDEC)
+		print ("Texto convertido a binarios. :)")
+		print ("==============================")
+
 	def insertarDatos(self):
 		self.imagenFoto = Image.open('nox.png')
 		self.imagenDato = self.imagenFoto.load()
 		#saco de 3 en 3 o de 1 en 1
-		
 		tope = len(self.vectorDEC)
 		inicio = 0
 		while (inicio < tope):
@@ -92,18 +104,6 @@ class Parasite :
 				fila = fila + 1
 			inicio = inicio + 1
 		self.guardarCerrar()
-
-	def asciiTObin (self):
-		for x in self.textoASCII:
-			#print (x)
-			#print (bytearray(x, encoding='utf-8'))
-			#print (ord(x))
-			#print (hex(ord(x)))
-			#print (bin(ord(x)))
-			self.vectorDEC.append(bin(ord(x)))#[2:])
-			print ("==============================")
-		#return self.vectorDEC
-		#print (self.vectorDEC)
 
 # main
 parasite = Parasite(10, 10, "Buenas noches mi amor :)", [])
