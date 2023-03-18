@@ -1,4 +1,6 @@
-# Parasite
+# Parasite : Steganography excercise
+# Parasite : Steganographie Übung
+# Parasite : Ejercicio de Esteganografía
 
 Crear imagen base.
 String 'test' a binario : 1110100110 0111010000 0111010101 0111001000
