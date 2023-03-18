@@ -1,12 +1,9 @@
 # Parasite
 
-python version :: 3.5
-requisitos :: requerimientos.txt
-
-Crear una imagen.
-Convertir una cadena a decimal.
-Inservar valor decimal en los canalres RGB.
-
+Crear imagen base.
+String 'test' a binario : 1110100110 0111010000 0111010101 0111001000
+Insertar valores en los canales RGB.
+- El mismo valor en los 3 canales.
 
 Cada pixel, es una letra.
 Recorrido ::
